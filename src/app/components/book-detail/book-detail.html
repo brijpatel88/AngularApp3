@@ -1,0 +1,35 @@
+<section class="detail-page" *ngIf="book() as selectedBook">
+  <div class="detail-card">
+    <div class="top-bar">
+      <a routerLink="/books" class="back-btn">← Back to Books</a>
+      <span class="detail-tag">Book Details</span>
+    </div>
+
+    <div class="detail-header">
+      <div class="icon-box">📘</div>
+      <div>
+        <p class="label">Author</p>
+        <p class="author">{{ selectedBook.author }}</p>
+      </div>
+    </div>
+
+    <h1>{{ selectedBook.title }}</h1>
+
+    <div class="info-box">
+      <h3>Description</h3>
+      <p>{{ selectedBook.description }}</p>
+    </div>
+
+    <div class="detail-actions">
+      <a [routerLink]="['/books/update', selectedBook.id]" class="edit-btn">Update Book</a>
+      <a [routerLink]="['/books/delete', selectedBook.id]" class="delete-btn">Delete Book</a>
+    </div>
+  </div>
+</section>
+
+<section class="detail-page" *ngIf="!book()">
+  <div class="detail-card">
+    <h2>Book not found</h2>
+    <a routerLink="/books" class="back-btn">← Back to Books</a>
+  </div>
+</section>

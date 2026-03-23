@@ -1,0 +1,19 @@
+<section class="delete-page" *ngIf="book() as selectedBook">
+  <div class="delete-card">
+    <div class="top-bar">
+      <a [routerLink]="['/books', selectedBook.id]" class="back-btn">← Back to Details</a>
+      <span class="delete-tag">Delete Book</span>
+    </div>
+
+    <h1>Delete Book</h1>
+    <p class="warning-text">
+      Are you sure you want to delete <strong>{{ selectedBook.title }}</strong> by
+      <strong>{{ selectedBook.author }}</strong>?
+    </p>
+
+    <div class="button-row">
+      <a [routerLink]="['/books', selectedBook.id]" class="cancel-btn">Cancel</a>
+      <button type="button" class="delete-btn" (click)="deleteBook()">Delete</button>
+    </div>
+  </div>
+</section>

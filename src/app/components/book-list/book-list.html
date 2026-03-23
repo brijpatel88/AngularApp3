@@ -1,0 +1,67 @@
+
+<section class="page">
+  <div class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">My Library</p>
+      <h1>Discover Great Books</h1>
+      <p class="subtitle">
+        Browse your collection, explore authors, and keep your reading list organized in one clean place.
+      </p>
+    </div>
+
+    <div class="hero-badges">
+      <div class="hero-badge">
+        <span>{{ books().length }}</span>
+        <p>Books Available</p>
+      </div>
+
+      <div class="hero-badge">
+        <span>{{ favoriteCount() }}</span>
+        <p>Favorites</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div>
+      <h2>Book Collection</h2>
+      <p class="toolbar-text">A simple Angular book browser using service-based data and signals.</p>
+    </div>
+
+    <a routerLink="/books/add" class="add-btn">+ Add Book</a>
+  </div>
+
+  <div *ngIf="books().length === 0" class="empty-state">
+    <h3>No books available</h3>
+    <p>Your collection is empty right now.</p>
+  </div>
+
+  <div *ngIf="books().length > 0" class="book-grid">
+    <article *ngFor="let book of books()" class="book-card">
+      <div class="card-top">
+        <div class="book-icon">📘</div>
+        <div class="book-meta">
+          <p class="label">Author</p>
+          <p class="author">{{ book.author }}</p>
+        </div>
+      </div>
+
+      <h3>{{ book.title }}</h3>
+
+      <p class="description">
+        {{ book.description }}
+      </p>
+
+      <div class="card-actions">
+        <button type="button" class="favorite-btn" (click)="toggleFavorite(book.id)">
+          {{ isFavorite(book.id) ? '★ Favorite' : '☆ Add Favorite' }}
+        </button>
+      </div>
+
+      <div class="card-footer">
+        <span class="tag">Book</span>
+        <a [routerLink]="['/books', book.id]" class="details-btn">View Details</a>
+      </div>
+    </article>
+  </div>
+</section>
