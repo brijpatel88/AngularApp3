@@ -1,22 +1,28 @@
-# Angular Book Management App
+# Angular Book CRUD App
 
-## 📺 Project Demo (YouTube)
-Watch the full project demo here:
-https://youtu.be/5po8a8fKzms
+## App Chosen
+I selected my Angular Book CRUD App from a previous assignment because it already included routing, forms, and service-based data handling, which made it a good project for adding unit tests and preparing for production.
 
 ## Features
-- View book list
+- View all books
+- Add a new book
 - View book details
-- Add new book
-- Update book
-- Delete book
+- Update and delete books
+- Angular routing
+- In-memory data service
 
-## Technologies
-- Angular (Standalone Components)
-- Angular Routing
-- HttpClient
-- In-Memory Web API
+## Tests Added
+This project includes unit tests for:
+- App component
+- Book list component
+- Book add form component
+- Book detail routed component
+- Book service
+- Truncate pipe
 
-## How to Run
+## How to Run the Project/Test/Production Build
+```bash
 npm install
-ng serve -o
+ng serve
+ng test
+ng build --configuration production
